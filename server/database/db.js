@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const DBConnection = async () => {
-    const MONGODB_URL = `mongodb+srv://resume-builder:dPc6iZekRjL00sAQ@swift-share.wc4zue8.mongodb.net/?retryWrites=true&w=majority`;
     try{
-        await mongoose.connect(MONGODB_URL, {
+        await mongoose.connect(process.env.MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }) ;
